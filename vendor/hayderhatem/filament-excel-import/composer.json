@@ -1,0 +1,55 @@
+{
+    "name": "hayderhatem/filament-excel-import",
+    "description": "Filament Excel import trait for Laravel",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Hayder Hatem",
+            "email": "hayderhatem@example.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "HayderHatem\\FilamentExcelImport\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "HayderHatem\\FilamentExcelImport\\Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "php": "^8.1",
+        "filament/filament": "^3.0",
+        "phpoffice/phpspreadsheet": "^1.27"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^8.0|^9.0",
+        "phpunit/phpunit": "^10.0",
+        "mockery/mockery": "^1.5",
+        "friendsofphp/php-cs-fixer": "^3.0",
+        "phpstan/phpstan": "^1.0",
+        "phpstan/phpstan-phpunit": "^1.0"
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit --no-coverage",
+        "test-coverage": "vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover",
+        "test-runner": "php test-runner.php",
+        "cs-check": "vendor/bin/php-cs-fixer fix --dry-run --diff",
+        "cs-fix": "vendor/bin/php-cs-fixer fix",
+        "phpstan": "vendor/bin/phpstan analyse --memory-limit=512M"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "HayderHatem\\FilamentExcelImport\\FilamentExcelImportServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

@@ -1,0 +1,14 @@
+@import 'index.css';
+@import '/vendor/malzariey/filament-lexical-editor/resources/css/index.css';
+/* Impor beberapa font dari daftar sebagai contoh */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+@source '../../../../vendor/cmsmaxinc/filament-error-pages/resources/**/*.blade.php';
+@source '../../../../vendor/bezhansalleh/filament-google-analytics/resources/views/**/*';
+@source '../../../../vendor/bezhansalleh/filament-google-analytics/src/{Widgets,Support}/*';
+
+/* Anda bisa menambahkan CSS kustom lainnya di sini */

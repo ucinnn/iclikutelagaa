@@ -1,0 +1,62 @@
+{
+    "name": "malzariey/filament-lexical-editor",
+    "description": "Implementation of meta's lexical editor in FilamentPHP, a modern, extensible text editor framework.",
+    "keywords": [
+        "malzariey",
+        "laravel",
+        "lexical",
+        "filaemntPHP",
+        "editor",
+        "text-editor",
+        "rich-text",
+        "filament-lexical-editor"
+    ],
+    "homepage": "https://github.com/malzariey/filament-lexical-editor",
+    "support": {
+        "issues": "https://github.com/malzariey/filament-lexical-editor/issues",
+        "source": "https://github.com/malzariey/filament-lexical-editor"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Majid Al Zariey",
+            "email": "malzariey@hajarco.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "filament/forms": "^3.0",
+        "filament/filament": "^3.0",
+        "spatie/laravel-package-tools": "^1.15.0"
+    },
+    "require-dev": {
+        "nunomaduro/collision": "^7.9",
+        "orchestra/testbench": "^8.0",
+        "pestphp/pest": "^2.1",
+        "pestphp/pest-plugin-arch": "^2.0",
+        "pestphp/pest-plugin-laravel": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Malzariey\\FilamentLexicalEditor\\": "src/"
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Malzariey\\FilamentLexicalEditor\\FilamentLexicalEditorServiceProvider"
+            ]
+
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
