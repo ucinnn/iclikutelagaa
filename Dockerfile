@@ -3,8 +3,6 @@ FROM ubuntu:24.04
 LABEL maintainer="Information Center"
 
 ARG NODE_VERSION=22
-ARG MYSQL_CLIENT="mysql-client"
-ARG POSTGRES_VERSION=17
 
 WORKDIR /var/www/html
 
@@ -46,8 +44,6 @@ RUN apt-get update && apt-get upgrade -y \
     && curl -fsSL https://deb.nodesource.com/setup_${NODE_VERSION}.x | bash - \
     && apt-get install -y nodejs \
     && npm install -g npm \
-    && apt-get install -y $MYSQL_CLIENT \
-    && apt-get install -y postgresql-client-$POSTGRES_VERSION \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
@@ -64,4 +60,4 @@ RUN chmod -R 775 storage bootstrap/cache
 
 EXPOSE 10000
 
-CMD php artisan serve --host=0.0.0.0 --port=${PORT:-10000}
+CMD ["sh", "-c", "php artisan serve --host=0.0.0.0 --port=${PORT:-10000}"]
