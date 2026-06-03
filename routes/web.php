@@ -40,7 +40,9 @@ use App\Http\Controllers\LanguageController;
     Route::get('/', fn() => view('landingpage'))->name('landingpage');
     Route::get('/loginpage', fn() => view('loginpage'))->name('loginpage');
     
-    
+    Route::get('/test-render', function () {
+        return 'RENDER OK';
+    });
     
     // =====================================
     // 🔒 ROUTE HANYA UNTUK USER LOGIN
