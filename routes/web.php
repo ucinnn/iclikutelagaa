@@ -37,7 +37,9 @@ use App\Http\Controllers\LanguageController;
     // =====================================
     // 🏠 HALAMAN LANDINGPAGE (Guest)
     // =====================================
-    Route::get('/', fn() => view('landingpage'))->name('landingpage');
+    Route::get('/', function () {
+        return 'ROOT OK';
+    });
     Route::get('/loginpage', fn() => view('loginpage'))->name('loginpage');
     
     Route::get('/test-render', function () {
