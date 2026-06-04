@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {{-- Dynamic Title --}}
-    @php
+    
+    <?php
         $pageTitle = 'Pilih Jenis Login';
         $brandName = config('app.name');
-    @endphp
-    <title>{{ $pageTitle ? "{$pageTitle} - {$brandName}" : $brandName }}</title>
+    ?>
+    <title><?php echo e($pageTitle ? "{$pageTitle} - {$brandName}" : $brandName); ?></title>
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -72,12 +72,12 @@
             <!-- Logo & Title -->
             <div class="space-y-6">
                 <a href="/" class="inline-flex items-center justify-center mb-8 transition-all duration-300 hover:scale-105">
-                    @if(config('app.logo'))
-                        <img src="{{ config('app.logo') }}" alt="{{ config('app.name') }} Logo" class="h-16 w-auto mr-3 drop-shadow-lg">
-                        <span class="text-4xl font-black text-gray-900">{{ config('app.name') }}</span>
-                    @else
-                        <span class="text-4xl font-black text-gray-900">{{ config('app.name') }}</span>
-                    @endif
+                    <?php if(config('app.logo')): ?>
+                        <img src="<?php echo e(config('app.logo')); ?>" alt="<?php echo e(config('app.name')); ?> Logo" class="h-16 w-auto mr-3 drop-shadow-lg">
+                        <span class="text-4xl font-black text-gray-900"><?php echo e(config('app.name')); ?></span>
+                    <?php else: ?>
+                        <span class="text-4xl font-black text-gray-900"><?php echo e(config('app.name')); ?></span>
+                    <?php endif; ?>
                 </a>
 
                 <h1 class="text-4xl md:text-5xl font-black text-gray-900 mb-4 tracking-tight">
@@ -92,7 +92,7 @@
             <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
 
                 <!-- User Login -->
-                <a href="{{ route('login') }}" class="block group">
+                <a href="<?php echo e(route('login')); ?>" class="block group">
                     <div class="login-card p-8 shadow-lg h-full">
                         <div class="space-y-6">
                             <div class="icon-container w-24 h-24 mx-auto bg-gradient-to-br from-blue-500 to-cyan-600 rounded-2xl flex items-center justify-center shadow-lg">
@@ -114,7 +114,7 @@
                 </a>
 
                            <!-- Admin Login -->
-                <a href="{{ route('filament.admin.auth.login') }}" class="block group">
+                <a href="<?php echo e(route('filament.admin.auth.login')); ?>" class="block group">
                     <div class="login-card p-8 shadow-lg h-full">
                         <div class="space-y-6">
                             <div class="icon-container w-24 h-24 mx-auto bg-gradient-to-br from-purple-500 to-indigo-600 rounded-2xl flex items-center justify-center shadow-lg">
@@ -142,8 +142,9 @@
             <div class="text-center pt-8">
                 <p class="text-gray-500 text-sm">
                     Belum punya akun? Hubungi admin di
-                    <a href="mailto:{{ env('APP_SITEMAIL') }}" class="text-indigo-600 hover:text-indigo-800 font-semibold transition-colors">
-                        {{ env('APP_SITEMAIL') }}
+                    <a href="mailto:<?php echo e(env('APP_SITEMAIL')); ?>" class="text-indigo-600 hover:text-indigo-800 font-semibold transition-colors">
+                        <?php echo e(env('APP_SITEMAIL')); ?>
+
                     </a>
                 </p>
             </div>
@@ -152,3 +153,4 @@
 
 </body>
 </html>
+<?php /**PATH C:\laragon\www\TA\Information Center FInal (1)\resources\views/loginpage.blade.php ENDPATH**/ ?>
