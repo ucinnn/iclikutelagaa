@@ -12,7 +12,7 @@
             ($livewire ?? null)?->getTitle()
             ?? View::getSections()['pageTitle'] ?? ''
         ));
-        $brandName = trim(strip_tags(filament()->getBrandName() ?? config('app.name')));
+        $brandName = config('app.name');
     @endphp
 
     <title>{{ $pageTitle ? "{$pageTitle} - {$brandName}" : $brandName }}</title>
