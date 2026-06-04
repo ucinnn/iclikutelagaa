@@ -6,7 +6,7 @@
     {{-- Dynamic Title --}}
     @php
         $pageTitle = 'Pilih Jenis Login';
-        $brandName = trim(strip_tags(filament()->getBrandName() ?? config('app.name')));
+        $brandName = config('app.name');
     @endphp
     <title>{{ $pageTitle ? "{$pageTitle} - {$brandName}" : $brandName }}</title>
 
@@ -57,7 +57,7 @@
 
     <!-- Back Button -->
     <div class="fixed top-6 left-6 z-50 animate-fade-in">
-        <a href="{{ route('landingpage') }}"
+        <a href="/"
             class="bg-white border border-gray-200 text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-indigo-200 rounded-full text-sm p-3 shadow-lg inline-flex items-center gap-2 transition-all duration-300">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
@@ -71,12 +71,12 @@
 
             <!-- Logo & Title -->
             <div class="space-y-6">
-                <a href="{{ route('landingpage') }}" class="inline-flex items-center justify-center mb-8 transition-all duration-300 hover:scale-105">
+                <a href="/" class="inline-flex items-center justify-center mb-8 transition-all duration-300 hover:scale-105">
                     @if(config('app.logo'))
                         <img src="{{ config('app.logo') }}" alt="{{ config('app.name') }} Logo" class="h-16 w-auto mr-3 drop-shadow-lg">
-                        <span class="text-4xl font-black text-gray-900">{{ filament()->getCurrentPanel()->getBrandName() ?? config('app.name') }}</span>
+                        <span class="text-4xl font-black text-gray-900">{{ config('app.name') }}</span>
                     @else
-                        <span class="text-4xl font-black text-gray-900">{{ filament()->getCurrentPanel()->getBrandName() ?? config('app.name') }}</span>
+                        <span class="text-4xl font-black text-gray-900">{{ config('app.name') }}</span>
                     @endif
                 </a>
 
@@ -92,7 +92,7 @@
             <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
 
                 <!-- User Login -->
-                <a href="{{ route('login') }}" class="block group">
+                <a href="#" class="block group">
                     <div class="login-card p-8 shadow-lg h-full">
                         <div class="space-y-6">
                             <div class="icon-container w-24 h-24 mx-auto bg-gradient-to-br from-blue-500 to-cyan-600 rounded-2xl flex items-center justify-center shadow-lg">
@@ -114,7 +114,7 @@
                 </a>
 
                            <!-- Admin Login -->
-                <a href="{{ route('filament.admin.auth.login') }}" class="block group">
+                <a href="#" class="block group">
                     <div class="login-card p-8 shadow-lg h-full">
                         <div class="space-y-6">
                             <div class="icon-container w-24 h-24 mx-auto bg-gradient-to-br from-purple-500 to-indigo-600 rounded-2xl flex items-center justify-center shadow-lg">
