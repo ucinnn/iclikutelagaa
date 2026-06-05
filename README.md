@@ -61,3 +61,135 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Deployment Notes
+
+### Application URL
+
+Production URL:
+
+https://iclikutelagaa.onrender.com
+
+### Hosting Environment
+
+* Platform: Render
+* Database: PostgreSQL (Render)
+* Web Framework: Laravel
+* Admin Panel: Filament
+
+### Technology Stack
+
+* PHP 8.4
+* Laravel 12
+* Filament
+* PostgreSQL
+* Render
+* Docker
+
+### Default Roles
+
+Seeder membuat role berikut:
+
+* superadmin
+* admin
+* author
+* user
+
+### Default Accounts
+
+Default account dibuat melalui file:
+
+```text
+database/seeders/DatabaseSeeder.php
+```
+
+Role yang tersedia:
+
+* Super Admin
+* Admin
+* Author
+
+### Important Database Fix
+
+Pada deployment Render tanggal 05 Juni 2026 ditemukan error:
+
+```text
+SQLSTATE[42883]: operator does not exist: text ->> unknown
+```
+
+Penyebab:
+
+Kolom `notifications.data` bertipe `text`, sedangkan Filament Notification membutuhkan tipe `json/jsonb`.
+
+Perbaikan yang dilakukan pada database PostgreSQL Render:
+
+```sql
+ALTER TABLE notifications
+ALTER COLUMN data TYPE jsonb
+USING data::jsonb;
+```
+
+Verifikasi:
+
+```sql
+SELECT column_name, data_type
+FROM information_schema.columns
+WHERE table_name = 'notifications';
+```
+
+Hasil:
+
+```text
+data | jsonb
+```
+
+Catatan:
+
+Perubahan tersebut dilakukan langsung pada database production PostgreSQL Render dan belum dibuat dalam migration permanen.
+
+### Troubleshooting
+
+#### Error Notification Filament
+
+Jika muncul error:
+
+```text
+SQLSTATE[42883]: operator does not exist: text ->> unknown
+```
+
+Pastikan kolom:
+
+```text
+notifications.data
+```
+
+menggunakan tipe:
+
+```text
+jsonb
+```
+
+bukan:
+
+```text
+text
+```
+
+#### Login Admin
+
+Pastikan proses berikut telah berhasil dijalankan:
+
+* Migration
+* Seeder
+* Database PostgreSQL Render
+
+### Deployment Status
+
+Deployment berhasil dilakukan pada Render dengan kondisi:
+
+* Database PostgreSQL terhubung
+* Migration berhasil dijalankan
+* Seeder berhasil dijalankan
+* Login Filament berhasil
+* Dashboard berhasil ditampilkan
+* Notification error telah diperbaiki
